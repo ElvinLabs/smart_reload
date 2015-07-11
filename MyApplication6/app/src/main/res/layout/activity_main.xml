@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/gradient"
+        android:id="@+id/linearLayout"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:id="@+id/imageView"
+            android:contentDescription="@string/log"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout"
+        android:background="#e0e0e0">
+
+        <Button
+            android:id="@+id/reload"
+
+            android:text="Reload"
+            android:textColor="#FFFFFF"
+
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#222"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"
+            android:layout_marginTop="100dp" />
+
+        <Button
+            android:id="@+id/check_blnc"
+
+            android:text="Check balance"
+            android:textColor="#FFFFFF"
+
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#222"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/crdt_shre"
+
+            android:text="Credit Share"
+            android:textColor="#FFFFFF"
+
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#222"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="by ElvinLabs"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="40dp"
+            android:typeface="serif"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_toRightOf="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayout"
+        android:layout_marginLeft="141dp"
+        android:layout_marginStart="141dp"></LinearLayout>
+
+</RelativeLayout>
