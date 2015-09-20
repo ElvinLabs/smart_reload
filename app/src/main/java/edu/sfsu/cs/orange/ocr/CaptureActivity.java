@@ -30,10 +30,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -43,7 +40,6 @@ import android.telephony.TelephonyManager;
 import android.text.ClipboardManager;
 import android.text.SpannableStringBuilder;
 import android.text.style.CharacterStyle;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextMenu;
@@ -121,7 +117,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   /** Whether the light should be initially activated by default. */
   public static final boolean DEFAULT_TOGGLE_LIGHT = false;
 
-  
+
   /** Flag to display the real-time recognition results at the top of the scanning screen. */
   private static final boolean CONTINUOUS_DISPLAY_RECOGNIZED_TEXT = true;
   
@@ -151,7 +147,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   
   /** Destination filename for orientation and script detection (OSD) data. */
   static final String OSD_FILENAME_BASE = "osd.traineddata";
-  
+
   /** Minimum mean confidence score necessary to not reject single-shot OCR result. Currently unused. */
   static final int MINIMUM_MEAN_CONFIDENCE = 0; // 0 means don't reject any scored results
   
@@ -177,7 +173,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private OcrResult lastResult;
   private Bitmap lastBitmap;
   private boolean hasSurface;
-//  private BeepManager beepManager;
   private TessBaseAPI baseApi; // Java interface for the Tesseract OCR engine
   private String sourceLanguageCodeOcr; // ISO 639-3 language code
   private String sourceLanguageReadable; // Language name, for example, "English"
@@ -228,12 +223,10 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
     cameraButtonView = findViewById(R.id.camera_button_view);
     resultView = findViewById(R.id.result_view);
-
     
     handler = null;
     lastResult = null;
     hasSurface = false;
-//    beepManager = new BeepManager(this);
 
     // Camera shutter button
     if (DISPLAY_SHUTTER_BUTTON) {
@@ -495,9 +488,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     if (lastResult != null) {
       handleOcrDecode(lastResult);
 
-
-
-
     } else {
       Toast toast = Toast.makeText(this, "Failed. Please try again.", Toast.LENGTH_SHORT);
       toast.setGravity(Gravity.TOP, 0, 0);
@@ -630,15 +620,14 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     return super.onKeyDown(keyCode, event);
   }
 
-//  @Override
-//  public boolean onCreateOptionsMenu(Menu menu) {
-//    //    MenuInflater inflater = getMenuInflater();
-//    //    inflater.inflate(R.menu.options_menu, menu);
-//    super.onCreateOptionsMenu(menu);
-//    menu.add(0, SETTINGS_ID, 0, "Settings").setIcon(android.R.drawable.ic_menu_preferences);
-//    menu.add(0, ABOUT_ID, 0, "About").setIcon(android.R.drawable.ic_menu_info_details);
-//    return true;
-//  }
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+
+    super.onCreateOptionsMenu(menu);
+    menu.add(0, SETTINGS_ID, 0, "Settings").setIcon(android.R.drawable.ic_menu_preferences);
+    menu.add(0, ABOUT_ID, 0, "About").setIcon(android.R.drawable.ic_menu_info_details);
+    return true;
+  }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
@@ -658,6 +647,10 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     }
     return super.onOptionsItemSelected(item);
   }
+
+
+
+
 
   public void surfaceDestroyed(SurfaceHolder holder) {
     hasSurface = false;
@@ -1135,8 +1128,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       characterWhitelist = OcrCharacterHelper.getWhitelist(prefs, sourceLanguageCodeOcr);
       
       prefs.registerOnSharedPreferenceChangeListener(listener);
-      
-//      beepManager.updatePrefs();
+
   }
   
   /**

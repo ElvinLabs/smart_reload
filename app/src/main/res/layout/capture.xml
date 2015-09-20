@@ -122,7 +122,7 @@
 
     <TextView android:id="@+id/status_view_top"
               android:layout_width="wrap_content"
-              android:layout_height="wrap_content"    
+              android:layout_height="wrap_content"
               android:layout_alignParentTop="true"
               android:background="#0000"
               android:text=""
@@ -159,10 +159,11 @@
               android:clickable="true" />
 
       <Button
-          android:layout_width="120dp"
+          android:layout_width="150dp"
           android:layout_height="40dp"
           android:textColor="#ffffff"
           android:text="Share Credit"
+          android:background="@drawable/button"
           android:id="@+id/buttonshr"
           android:layout_alignParentBottom="true"
           android:layout_alignParentRight="true"
@@ -172,9 +173,10 @@
           />
 
       <Button
-          android:layout_width="120dp"
+          android:layout_width="150dp"
           android:layout_height="40dp"
           android:text="Check Balance"
+          android:background="@drawable/button"
           android:textColor="#ffffff"
           android:id="@+id/buttonblnc"
           android:layout_alignParentBottom="true"

@@ -1,27 +1,10 @@
-/*
- * Copyright (C) 2010 ZXing authors
- * Copyright 2011 Robert Theis
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 package edu.sfsu.cs.orange.ocr;
 
-import edu.sfsu.cs.orange.ocr.BeepManager;
+
 
 import com.googlecode.leptonica.android.ReadFile;
 import com.googlecode.tesseract.android.TessBaseAPI;
-
 import edu.sfsu.cs.orange.ocr.CaptureActivity;
 import edu.sfsu.cs.orange.ocr.R;
 
@@ -41,7 +24,7 @@ final class DecodeHandler extends Handler {
   private final CaptureActivity activity;
   private boolean running = true;
   private final TessBaseAPI baseApi;
-  private BeepManager beepManager;
+//  private BeepManager beepManager;
   private Bitmap bitmap;
   private static boolean isDecodePending;
   private long timeRequired;
@@ -49,8 +32,6 @@ final class DecodeHandler extends Handler {
   DecodeHandler(CaptureActivity activity) {
     this.activity = activity;
     baseApi = activity.getBaseApi();
-    beepManager = new BeepManager(activity);
-    beepManager.updatePrefs();
   }
 
   @Override
@@ -88,7 +69,6 @@ final class DecodeHandler extends Handler {
    * @param height Image height
    */
   private void ocrDecode(byte[] data, int width, int height) {
-    beepManager.playBeepSoundAndVibrate();
     activity.displayProgressDialog();
     
     // Launch OCR asynchronously, so we get the dialog box displayed immediately

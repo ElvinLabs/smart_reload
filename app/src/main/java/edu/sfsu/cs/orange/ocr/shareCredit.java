@@ -73,18 +73,18 @@ public class shareCredit extends Activity {
         // Mobitel
         if (provider.equals("41301")) {
             ussdCode = "*448*"+number+"*"+amout+Uri.encode("#");
-//        }else if(no2.equals("41302")){
-//            //Dialog
-//            ussdCode = "*"+Uri.encode("#") + "456" + Uri.encode("#");
-//        }else if(no2.equals("41303")){
-//            //Etisalate
-//            ussdCode = "*" + "134" + Uri.encode("#");
-//        }else if(no2.equals("41305")){
+        }else if(provider.equals("41302")){
+            //Dialog
+            ussdCode = Uri.encode("#") + "356" + Uri.encode("#");
+        }else if(provider.equals("41303")){
+            //Etisalate
+            ussdCode = "*100*" +number+"*"+amout+ Uri.encode("#");
+//        }else if(provider.equals("41305")){
 //            //Airtel
 //            ussdCode = "*" + "550" + Uri.encode("#");
-//        }else if(no2.equals("41308")){
-//            //Hutch
-//            ussdCode = "*" + "344" + Uri.encode("#");
+        }else if(provider.equals("41308")){
+            //Hutch
+            ussdCode = "*" + "121" + Uri.encode("#");
         }else{
             //Error
             return false;
