@@ -170,17 +170,14 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private ViewfinderView viewfinderView;
   private SurfaceView surfaceView;
   private SurfaceHolder surfaceHolder;
-//  private TextView statusViewBottom;
-//  private TextView statusViewTop;
   private EditText ocrResultView;
   private TextView translationView;
   private View cameraButtonView;
   private View resultView;
-//  private View progressView;
   private OcrResult lastResult;
   private Bitmap lastBitmap;
   private boolean hasSurface;
-  private BeepManager beepManager;
+//  private BeepManager beepManager;
   private TessBaseAPI baseApi; // Java interface for the Tesseract OCR engine
   private String sourceLanguageCodeOcr; // ISO 639-3 language code
   private String sourceLanguageReadable; // Language name, for example, "English"
@@ -231,17 +228,13 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
     cameraButtonView = findViewById(R.id.camera_button_view);
     resultView = findViewById(R.id.result_view);
-//
-//    statusViewBottom = (TextView) findViewById(R.id.status_view_bottom);
-//    registerForContextMenu(statusViewBottom);
-//    statusViewTop = (TextView) findViewById(R.id.status_view_top);
-//    registerForContextMenu(statusViewTop);
+
     
     handler = null;
     lastResult = null;
     hasSurface = false;
-    beepManager = new BeepManager(this);
-    
+//    beepManager = new BeepManager(this);
+
     // Camera shutter button
     if (DISPLAY_SHUTTER_BUTTON) {
       shutterButton = (ShutterButton) findViewById(R.id.shutter_button);
@@ -250,10 +243,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
    
     ocrResultView = (EditText) findViewById(R.id.ocr_result_text_view);
     registerForContextMenu(ocrResultView);
-   // translationView = (TextView) findViewById(R.id.translation_text_view);
-//    registerForContextMenu(translationView);
-
-//    progressView = (View) findViewById(R.id.indeterminate_progress_indicator_view);
 
     cameraManager = new CameraManager(getApplication());
     viewfinderView.setCameraManager(cameraManager);
@@ -358,8 +347,48 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
           }
       });
 
+      final Button reload = (Button) findViewById(R.id.reload);
+      reload.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              EditText cardNumber = (EditText) findViewById(R.id.ocr_result_text_view);
+              reload(cardNumber.getText().toString());
+          }
+      });
+
   }
 
+    // function for reload
+    public boolean reload(String number){
+        TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        String no = tm.getLine1Number();
+        String no2 = tm.getSimOperator();
+        String ussdCode="";
+
+        // Mobitel
+        if (no2.equals("41301")) {
+            ussdCode = "*102*" +number+Uri.encode("#");
+        }else if(no2.equals("41302")){
+            //Dialog
+            ussdCode = "*"+Uri.encode("#") + "123"+Uri.encode("#")+number+Uri.encode("#");
+        }else if(no2.equals("41303")){
+            //Etisalate
+            ussdCode = "*" + "336" + Uri.encode("#")+number+Uri.encode("#");
+        }else if(no2.equals("41305")){
+            //Airtel
+            ussdCode = "*" + "567" + Uri.encode("#")+number+Uri.encode("#");
+        }else if(no2.equals("41308")){
+            //Hutch
+            ussdCode = "*355*" +number+Uri.encode("#");
+        }else{
+            //Error
+            return false;
+        }
+
+        startActivity(new Intent("android.intent.action.CALL", Uri.parse("tel:" + ussdCode)));
+        return true;
+
+    }
 
     // function for check balance
     public boolean checkBalance(){
@@ -462,9 +491,13 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   void onShutterButtonPressContinuous() {
     isPaused = true;
     handler.stop();  
-    beepManager.playBeepSoundAndVibrate();
+//    beepManager.playBeepSoundAndVibrate();
     if (lastResult != null) {
       handleOcrDecode(lastResult);
+
+
+
+
     } else {
       Toast toast = Toast.makeText(this, "Failed. Please try again.", Toast.LENGTH_SHORT);
       toast.setGravity(Gravity.TOP, 0, 0);
@@ -597,15 +630,15 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     return super.onKeyDown(keyCode, event);
   }
 
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    //    MenuInflater inflater = getMenuInflater();
-    //    inflater.inflate(R.menu.options_menu, menu);
-    super.onCreateOptionsMenu(menu);
-    menu.add(0, SETTINGS_ID, 0, "Settings").setIcon(android.R.drawable.ic_menu_preferences);
-    menu.add(0, ABOUT_ID, 0, "About").setIcon(android.R.drawable.ic_menu_info_details);
-    return true;
-  }
+//  @Override
+//  public boolean onCreateOptionsMenu(Menu menu) {
+//    //    MenuInflater inflater = getMenuInflater();
+//    //    inflater.inflate(R.menu.options_menu, menu);
+//    super.onCreateOptionsMenu(menu);
+//    menu.add(0, SETTINGS_ID, 0, "Settings").setIcon(android.R.drawable.ic_menu_preferences);
+//    menu.add(0, ABOUT_ID, 0, "About").setIcon(android.R.drawable.ic_menu_info_details);
+//    return true;
+//  }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
@@ -674,13 +707,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         showErrorMessage("Error", "Required external storage (such as an SD card) is full or unavailable.");
       }
       
-      //        } else {
-      //          // For Android 2.1 and below, explicitly give the path as, for example,
-      //          // "/mnt/sdcard/Android/data/edu.sfsu.cs.orange.ocr/files/"
-      //          return new File(Environment.getExternalStorageDirectory().toString() + File.separator + 
-      //                  "Android" + File.separator + "data" + File.separator + getPackageName() + 
-      //                  File.separator + "files" + File.separator);
-      //        }
+
     
     } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
     	// We can only read the media
@@ -1109,7 +1136,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       
       prefs.registerOnSharedPreferenceChangeListener(listener);
       
-      beepManager.updatePrefs();
+//      beepManager.updatePrefs();
   }
   
   /**
