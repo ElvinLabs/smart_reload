@@ -17,9 +17,6 @@ import android.widget.EditText;
 public class shareCredit extends Activity {
 
     Button share;
-    private TelephonyManager tm;
-    private  String no;
-    private  String no2;
     EditText amout;
     EditText number;
 
@@ -29,18 +26,19 @@ public class shareCredit extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share_credit);
         share = (Button) findViewById(R.id.share_btn);
-        tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        no = tm.getLine1Number();
-        no2 = tm.getSimOperator();
+
 
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ///code
-                amout = (EditText) findViewById(R.id.amount);
-                number = (EditText) findViewById(R.id.number);
+              TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+              String  no = tm.getLine1Number();
+              String no2 = tm.getSimOperator();
+              amout = (EditText) findViewById(R.id.amount);
+              number = (EditText) findViewById(R.id.number);
 
-                //shareCrdt(no2,amout.getText().toString(),number.getText().toString());
+              shareCrdt(no2,amout.getText().toString(),number.getText().toString());
 
 
             }
@@ -49,13 +47,32 @@ public class shareCredit extends Activity {
 
 
     // balance check  function
-    public void shareCrdt(String provider,String amout,String number){
+    public boolean shareCrdt(String provider,String amout,String number){
         String ussdCode="";
 
-        if (provider.equals(no2)) {
-            ussdCode = "*" + "100" + Uri.encode("#");
+        // Mobitel
+        if (provider.equals("41301")) {
+            ussdCode = "*448*"+number+"*"+amout+Uri.encode("#");
+//        }else if(no2.equals("41302")){
+//            //Dialog
+//            ussdCode = "*"+Uri.encode("#") + "456" + Uri.encode("#");
+//        }else if(no2.equals("41303")){
+//            //Etisalate
+//            ussdCode = "*" + "134" + Uri.encode("#");
+//        }else if(no2.equals("41305")){
+//            //Airtel
+//            ussdCode = "*" + "550" + Uri.encode("#");
+//        }else if(no2.equals("41308")){
+//            //Hutch
+//            ussdCode = "*" + "344" + Uri.encode("#");
+        }else{
+            //Error
+            return false;
         }
+
         startActivity(new Intent("android.intent.action.CALL", Uri.parse("tel:" + ussdCode)));
+        return true;
+
     }
 
 

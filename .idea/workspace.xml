@@ -63,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shareCredit.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="shareCredit.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/shareCredit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1377">
-              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="57" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.30670103" vertical-offset="561" max-vertical-offset="1666">
+              <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -108,18 +108,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaptureActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CaptureActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/CaptureActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5366876" vertical-offset="4878" max-vertical-offset="18802">
-              <caret line="375" column="8" selection-start-line="375" selection-start-column="8" selection-end-line="375" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="5082" max-vertical-offset="18938">
+              <caret line="377" column="23" selection-start-line="377" selection-start-column="23" selection-end-line="377" selection-end-column="23" />
               <folding>
                 <element signature="e#16103#16321#0" expanded="true" />
                 <element signature="e#16312#16313#0" expanded="true" />
-                <element signature="e#16427#16570#0" expanded="true" />
-                <element signature="e#16561#16562#0" expanded="true" />
-                <element signature="e#19803#19830#1" expanded="true" />
-                <element signature="e#37645#37672#1" expanded="true" />
+                <element signature="e#16427#16565#0" expanded="true" />
+                <element signature="e#16556#16557#0" expanded="true" />
+                <element signature="e#20379#20406#1" expanded="true" />
+                <element signature="e#38221#38248#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1776,8 +1776,8 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/provider.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/capture.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/shareCredit.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/CaptureActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/shareCredit.java" />
       </list>
     </option>
   </component>
@@ -2189,7 +2189,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26624405" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17908083" sideWeight="0.4591528" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.340729" sideWeight="0.4591528" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26624405" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18154311" sideWeight="0.49881798" order="0" side_tool="false" content_ui="combo" />
@@ -2360,26 +2360,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/shareCredit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1377">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="57" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/CaptureActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5366876" vertical-offset="4878" max-vertical-offset="18802">
-          <caret line="375" column="8" selection-start-line="375" selection-start-column="8" selection-end-line="375" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5082" max-vertical-offset="18938">
+          <caret line="377" column="23" selection-start-line="377" selection-start-column="23" selection-end-line="377" selection-end-column="23" />
           <folding>
             <element signature="e#16103#16321#0" expanded="true" />
             <element signature="e#16312#16313#0" expanded="true" />
-            <element signature="e#16427#16570#0" expanded="true" />
-            <element signature="e#16561#16562#0" expanded="true" />
-            <element signature="e#19803#19830#1" expanded="true" />
-            <element signature="e#37645#37672#1" expanded="true" />
+            <element signature="e#16427#16565#0" expanded="true" />
+            <element signature="e#16556#16557#0" expanded="true" />
+            <element signature="e#20379#20406#1" expanded="true" />
+            <element signature="e#38221#38248#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sfsu/cs/orange/ocr/shareCredit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30670103" vertical-offset="561" max-vertical-offset="1666">
+          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

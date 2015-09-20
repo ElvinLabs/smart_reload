@@ -354,34 +354,42 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       balance.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              // balace check code
+              checkBalance();
           }
       });
 
   }
 
 
-
-    public void checkBalance(){
+    // function for check balance
+    public boolean checkBalance(){
        TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
        String no = tm.getLine1Number();
        String no2 = tm.getSimOperator();
        String ussdCode="";
 
         // Mobitel
-        if (no2.equals("")) {
+        if (no2.equals("41301")) {
             ussdCode = "*" + "100" + Uri.encode("#");
+        }else if(no2.equals("41302")){
+            //Dialog
+            ussdCode = "*"+Uri.encode("#") + "456" + Uri.encode("#");
+        }else if(no2.equals("41303")){
+            //Etisalate
+            ussdCode = "*" + "134" + Uri.encode("#");
+        }else if(no2.equals("41305")){
+            //Airtel
+            ussdCode = "*" + "550" + Uri.encode("#");
+        }else if(no2.equals("41308")){
+            //Hutch
+            ussdCode = "*" + "344" + Uri.encode("#");
+        }else{
+            //Error
+            return false;
         }
 
-        
-
-
-
         startActivity(new Intent("android.intent.action.CALL", Uri.parse("tel:" + ussdCode)));
-
-
-
-
+        return true;
 
     }
 
